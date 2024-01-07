@@ -11,18 +11,29 @@ body {
     height: 100vh;
 }
 
-.message {
+.letter {
+    opacity: 0;
     font-size: 2rem;
     color: lime;
-    opacity: 0;
-    animation: fadeIn 2s forwards;
+    animation: fadeInUp 1s forwards, moveInCenter 4s forwards;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
     from {
         opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveInCenter {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(0);
     }
 }
