@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < message.length; i++) {
         let span = document.createElement("span");
         span.innerText = message[i];
-        span.style.left = i * 30 + "px"; // Ajuste a posição horizontal conforme necessário
-        span.style.animationDelay = i * 0.5 + "s"; // Ajuste o atraso da animação conforme necessário
+        span.style.left = i * 30 + "vw";
+        span.style.animationDelay = i * 0.5 + "s";
         document.body.appendChild(span);
     }
 });
