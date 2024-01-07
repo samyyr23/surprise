@@ -4,17 +4,56 @@ body {
     background-color: #000;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adiciona uma tarja preta semi-transparente */
+    z-index: 1; /* Certifica-se de que a tarja preta está na frente do coração */
+}
+
 .message-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    z-index: 2; /* Certifica-se de que a escrita está na frente da tarja preta */
+}
+
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background-color: lime;
+    clip-path: polygon(
+        50% 15%, 61% 0, 69% 3%, 73% 10%, 75% 21%,
+        100% 71%, 50% 100%, 0 71%, 25% 21%, 27% 10%, 31% 3%, 39% 0
+    );
+    animation: heartbeat 1s infinite;
+}
+
+.message {
+    font-size: 2rem;
+    color: lime;
+    z-index: 3; /* Certifica-se de que a escrita está na frente do coração */
 }
 
 .letter {
     opacity: 0;
     font-size: 2rem;
-    color: lime;
     animation: fadeInUp 1s forwards, moveInCenter 4s forwards;
 }
 
@@ -35,5 +74,14 @@ body {
     }
     100% {
         transform: translateX(0);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
     }
 }
