@@ -1,26 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let interval = setInterval(addRandomNumber, 50);
     let message = "EU TE AMO MUITO";
-    let currentIndex = 0;
 
-    function addRandomNumber() {
-        let randomNumber = Math.floor(Math.random() * 10);
+    for (let i = 0; i < message.length; i++) {
         let span = document.createElement("span");
-        span.style.color = "lime";
-        span.style.position = "absolute";
+        span.innerText = message[i];
         span.style.left = Math.random() * 100 + "vw";
-        span.style.top = Math.random() * 100 + "vh";
-        span.innerText = randomNumber;
-
+        span.style.animationDelay = Math.random() + "s";
         document.body.appendChild(span);
-
-        if (currentIndex < message.length) {
-            span.innerText = message[currentIndex];
-            currentIndex++;
-        } else {
-            document.body.removeChild(span);
-        }
     }
 });
-
-
